@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import React from "react";
+import { RecoilRoot } from "recoil";
 import Formulario from "./Formulario";
 
 test('quando o input esta vazio, novos participantes nao podem ser adicionados', () => {
@@ -15,7 +15,11 @@ test('quando o input esta vazio, novos participantes nao podem ser adicionados',
 })
 
 test('adicionar participante caso exista um nome preenchido', () => {
-    render(<Formulario />)
+    render(
+        <RecoilRoot>
+            <Formulario />
+        </RecoilRoot>
+    )
     // encontrar no DOM o input
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes');
     // encontrar o botao
@@ -27,10 +31,8 @@ test('adicionar participante caso exista um nome preenchido', () => {
             value: 'Kelly'
         }
     });
-
     // clicar no botao de submeter
     fireEvent.click(botao)
-
     // garantir que o input esteja com o foco ativo
     expect(input).toHaveFocus()
     // garantir que o input nao tenha um valor

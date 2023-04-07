@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useAdicionarParticipante } from "state/hook/useAdicionarParticipante";
 import { useMensagemDeErro } from "state/hook/useMensagemDeErro";
 
-export const Formulario = () => {
+export default function Formulario() {
 
   const [nome, setNome] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);

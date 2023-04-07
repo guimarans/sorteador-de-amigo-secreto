@@ -1,6 +1,6 @@
 import './style.css';
 
-export default function Cabecalho() {
+export const Cabecalho = () => {
   return (
     <header className="cabecalho">
       <div className="imagem-logo" role="img" aria-label='Logo do Sorteador'></div>

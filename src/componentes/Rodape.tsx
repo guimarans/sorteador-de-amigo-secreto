@@ -16,7 +16,7 @@ export default function Rodape() {
   return (
     <footer className="rodape-configuracoes">
       <button className="botao" disabled={participantes.length < 3} onClick={iniciar}> Iniciar brincadeira </button>
-      <img src="/images/sacolas.png" alt="Sacolas de compras" />
+      <img src="/imagens/sacolas.png" alt="Sacolas de compras" />
     </footer>
   )
 }

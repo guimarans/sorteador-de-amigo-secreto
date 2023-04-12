@@ -6,19 +6,19 @@ import Configuracao from "./Configuracao";
 const mockNavegacao = jest.fn();
 
 jest.mock('react-router-dom', () => {
-    return {
-        useNavigate: () => mockNavegacao
-    }
+  return {
+    useNavigate: () => mockNavegacao
+  }
 });
 
 describe('a pagina de configurcao', () => {
-    test('deve ser renderizada corretamente', () => {
-        const {container} = render(
-            <RecoilRoot>
-                <Configuracao />
-            </RecoilRoot>
-        )
+  test('deve ser renderizada corretamente', () => {
+    const { container } = render(
+      <RecoilRoot>
+        <Configuracao />
+      </RecoilRoot>
+    )
 
-        expect(container).toMatchSnapshot();
-    })
+    expect(container).toMatchSnapshot();
+  })
 })

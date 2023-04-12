@@ -1,3 +1,5 @@
+import { useSetRecoilState } from "recoil";
+import { resultadoDoAmigoSecreto } from "state/atom";
 import { useListaDeParticipantes } from "state/hook/useListaDeParticipantes"
 
 export default function Sorteio() {

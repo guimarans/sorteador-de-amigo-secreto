@@ -44,5 +44,6 @@ export default function Sorteio() {
         </footer>
       </section>
     </Card>
+    
   )
 }

@@ -38,7 +38,7 @@ exports[`a pagina de configurcao deve ser renderizada corretamente 1`] = `
         </button>
         <img
           alt="Sacolas de compras"
-          src="/images/sacolas.png"
+          src="/imagens/sacolas.png"
         />
       </footer>
     </section>

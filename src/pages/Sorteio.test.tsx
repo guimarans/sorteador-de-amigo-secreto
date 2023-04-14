@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { RecoilRoot } from "recoil";
 import Sorteio from "./Sorteio";
@@ -49,7 +49,7 @@ describe('na pagina de sorteio', () => {
             </RecoilRoot>
         );
 
-        const select = screen.getByPlaceholderText('Seleciona o seu nome');
+        const select = screen.getByPlaceholderText('Selecione o participante');
         fireEvent.change(select, {
             target: {
                 value: participantes[0]
@@ -62,5 +62,28 @@ describe('na pagina de sorteio', () => {
         const amigoSecreto = screen.getByRole('alert');
 
         expect(amigoSecreto).toBeInTheDocument();
+    })
+
+    test('esconde o amigo secreto sorteado depois de 5 segundos', async () => {
+        jest.useFakeTimers();
+
+        render(
+            <RecoilRoot>
+                <Sorteio />
+            </RecoilRoot>
+        )
+
+        const select = screen.getByPlaceholderText('Selecione o participante')
+        const button = screen.getByRole('button')
+        const alerta = screen.queryByRole('alert')
+
+        fireEvent.change(select, { target: { value: participantes[1] } })
+        fireEvent.click(button)
+
+        act(() => {
+            jest.runAllTimers();
+        })
+
+        expect(alerta).not.toBeInTheDocument()
     })
  })

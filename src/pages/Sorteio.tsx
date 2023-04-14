@@ -17,6 +17,10 @@ export default function Sorteio() {
 
     if (resultado.has(participanteDaVez)) {
       setAmigoSecreto(resultado.get(participanteDaVez)!);
+
+      setTimeout(() => {
+        setAmigoSecreto('')
+      }, 5000)
     }
   }
   return (
@@ -28,11 +32,11 @@ export default function Sorteio() {
             required
             name="participanteDaVez"
             id="participanteDaVez"
-            placeholder="Seleciona o seu nome"
+            placeholder="Selecione o participante"
             value={participanteDaVez}
             onChange={evento => setParticipanteDaVez(evento.target.value)}
           >
-            <option> Selecione o seu nome </option>
+            <option> Selecione o participante </option>
             {participantes.map(participante => <option key={participante}>{participante}</option>)}
           </select>
           <p> Clique em sortear para ver quem é seu amigo secreto! </p>
